@@ -20,6 +20,7 @@ class DraftsController < ApplicationController
   def assign_player
     @current_pick = @draft.next_picks.first
     redirect_to draft_path(@draft), notice: 'Draft process is completed.' and return if @current_pick.blank?
+    @team = Team.where(id: @current_pick.team_id).first
     @draftable_players = @draft.draftable_players
   end
 

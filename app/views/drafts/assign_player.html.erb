@@ -11,6 +11,7 @@
         </div>
     <% end %>
     <div class="table-title">
+      <%= link_to 'Back to Overview', @draft %>
       <h3>Assign Player</h3>
     </div>
     <table class="table-fill">
@@ -25,7 +26,7 @@
       <tr>
         <td class="text-left"><%= @current_pick.round %></td>
         <td class="text-left"><%= @current_pick.pick %></td>
-        <td class="text-left">Display Team</td>
+        <td class="text-left"><%=@team.name%></td>
       </tr>
       <tr>
         <td><%= f.label :assign_player, 'Choose Player', class: '' %></td>
