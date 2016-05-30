@@ -12,12 +12,9 @@ class DraftsController < ApplicationController
     @previous_picks = @draft.previous_picks(3).to_a
     @next_picks = @draft.next_picks(4).to_a
     @draftable_players = @draft.draftable_players
-    player_ids = []
-    [@results.values, @previous_picks, @next_picks].flatten.each do |ownership|
-      player_ids << ownership.player_id
-    end
+    player_ids = [@results.values, @previous_picks, @next_picks].flatten.collect(&:player_id)
     @teams = Team.all.index_by(&:id)
-    @players = Player.all.index_by(&:id)
+    @players = Player.where(id: player_ids).index_by(&:id)
   end
 
   def assign_player
