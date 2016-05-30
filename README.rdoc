@@ -6,14 +6,17 @@ application up and running.
 Things you may want to cover:
 
 * Ruby version
+ruby 2.2.1p85
 
 * System dependencies
 
 * Configuration
 
 * Database creation
+rake db:migrate
 
 * Database initialization
+rake import:data
 
 * How to run the test suite
 
