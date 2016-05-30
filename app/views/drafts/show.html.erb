@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+<div class="nfl-overview">
+  <span>NFL Draft <%=@draft.year%> Overview</span>
+  <%= link_to 'Click here to Assign Player', assign_player_draft_path(@draft) %>
+</div>
+
+<div>
+  <div class="float-left overview-div"><%=render :partial => "drafts/shared/previous_picks"%></div>
+  <div class="float-left overview-div margin-left-10px"><%=render :partial => "drafts/shared/current_pick"%></div>
+  <div class="float-left overview-div margin-left-10px"><%=render :partial => "drafts/shared/next_picks"%></div>
+  <br clear="all"/>
+</div>
+
+
+<div>
+<div class="float-left results-div"><%=render :partial => "drafts/shared/results_by_round"%></div>
+<div class="float-left results-div margin-left-10px"><%=render :partial => "drafts/shared/results_by_team"%></div>
+<br clear="all"/>
+</div>
+
+<div>
+  <div class="float-left results-div"><%=render :partial => "drafts/shared/remaining_players"%></div>
+  <br clear="all"/>
+</div>

@@ -1,0 +1,27 @@
+<h3>Next <%=[0,(@next_picks.count - 1)].max%> Picks</h3>
+<div class="table-margin">
+  <% if @next_picks.count > 0%>
+      <table class="table-fill">
+        <thead>
+        <tr>
+          <th class="text-left">Round</th>
+          <th class="text-left">Pick</th>
+          <th class="text-left">Team</th>
+        </tr>
+        </thead>
+        <tbody class="table-hover">
+        <%
+           @next_picks.shift
+           @next_picks.each do |previous_pick| %>
+            <tr>
+              <td class="text-left"><%= previous_pick.round %></td>
+              <td class="text-left"><%= previous_pick.pick %></td>
+              <td class="text-left"><%= @teams[previous_pick.team_id].name %></td>
+            </tr>
+        <%end%>
+        </tbody>
+      </table>
+  <%else%>
+      No results found.
+  <%end%>
+</div>

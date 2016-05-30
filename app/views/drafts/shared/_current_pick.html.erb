@@ -1,0 +1,24 @@
+<h3>Current Pick</h3>
+<div class="table-margin">
+  <% if @next_picks.count > 0%>
+      <table class="table-fill">
+        <thead>
+        <tr>
+          <th class="text-left">Round</th>
+          <th class="text-left">Pick</th>
+          <th class="text-left">Team</th>
+        </tr>
+        </thead>
+        <tbody class="table-hover">
+        <% current_pick = @next_picks.first %>
+        <tr>
+          <td class="text-left"><%= current_pick.round %></td>
+          <td class="text-left"><%= current_pick.pick %></td>
+          <td class="text-left"><%= @teams[current_pick.team_id].name %></td>
+        </tr>
+        </tbody>
+      </table>
+  <%else%>
+      No results found.
+  <%end%>
+</div>

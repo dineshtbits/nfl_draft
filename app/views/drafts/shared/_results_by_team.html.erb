@@ -1,0 +1,36 @@
+<h3>NFL Draft <%=@draft.year%> Results - By Round</h3>
+<div>
+  <span class="font-bold">Select Team: </span>
+  <select id="teams" onChange="window.location.href=this.value">
+    <%@teams.values.each do |team|%>
+        <option <%=params[:team_id].eql?(team.id) ? 'selected' : ''%> value="<%=@draft.id%>?team_id=<%=team.id%>"><%=team.name%></option>
+    <%end%>
+  </select>
+</div>
+<% if @results[:by_team].count > 0%>
+    <div class="table-margin">
+      <table class="table-fill">
+        <thead>
+        <tr>
+          <th class="text-left">Pick</th>
+          <th class="text-left">Team</th>
+          <th class="text-left">Player</th>
+          <th class="text-left">Position</th>
+        </tr>
+        </thead>
+        <tbody class="table-hover">
+        <%@results[:by_team].each do |result| %>
+            <tr>
+              <td class="text-left"><%= result.pick %></td>
+              <td class="text-left"><%= @teams[result.team_id].name %></td>
+              <td class="text-left"><%= @players[result.player_id].name %></td>
+              <td class="text-left"><%= @players[result.player_id].position%></td>
+            </tr>
+        <%end%>
+        </tbody>
+      </table>
+    </div>
+<%else%>
+    No results found.
+<%end%>
+

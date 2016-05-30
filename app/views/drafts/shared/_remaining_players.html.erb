@@ -1,0 +1,23 @@
+<h3>NFL Draft <%=@draft.year%> - Remaining Players (<%=@draftable_players.count%>)</h3>
+<div class="table-margin">
+  <% if @draftable_players.count > 1%>
+      <table class="table-fill">
+        <thead>
+        <tr>
+          <th class="text-left">Player</th>
+          <th class="text-left">Position</th>
+        </tr>
+        </thead>
+        <tbody class="table-hover">
+        <%@draftable_players.each do |player| %>
+            <tr>
+              <td class="text-left"><%= player.name %></td>
+              <td class="text-left"><%= player.position %></td>
+            </tr>
+        <%end%>
+        </tbody>
+      </table>
+  <%else%>
+      No results found.
+  <%end%>
+</div>

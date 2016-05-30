@@ -1,0 +1,37 @@
+<%= form_for [@draft, @current_pick], html: {multipart: true} do |f| %>
+    <p id="notice"><%= notice %></p>
+    <% if @current_pick.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(@current_pick.errors.count, "error") %> prohibited this draft from being saved:</h2>
+          <ul>
+            <% @current_pick.errors.full_messages.each do |message| %>
+                <li><%= message %></li>
+            <% end %>
+          </ul>
+        </div>
+    <% end %>
+    <div class="table-title">
+      <h3>Assign Player</h3>
+    </div>
+    <table class="table-fill">
+      <thead>
+      <tr>
+        <th class="text-left">Round</th>
+        <th class="text-left">Pick</th>
+        <th class="text-left">Team</th>
+      </tr>
+      </thead>
+      <tbody class="table-hover">
+      <tr>
+        <td class="text-left"><%= @current_pick.round %></td>
+        <td class="text-left"><%= @current_pick.pick %></td>
+        <td class="text-left">Display Team</td>
+      </tr>
+      <tr>
+        <td><%= f.label :assign_player, 'Choose Player', class: '' %></td>
+        <td><%= f.select :player_id, @draftable_players.map { |ot| [ot.name, ot.id] }, {}%></td>
+        <td><%= f.submit "Assign Player"%></td>
+      </tr>
+      </tbody>
+    </table>
+<% end %>
