@@ -3,7 +3,7 @@
   <span class="font-bold">Select Team: </span>
   <select id="teams" onChange="window.location.href=this.value">
     <%@teams.values.each do |team|%>
-        <option <%=params[:team_id].eql?(team.id) ? 'selected' : ''%> value="<%=@draft.id%>?team_id=<%=team.id%>"><%=team.name%></option>
+        <option <%=params[:team_id].to_i.eql?(team.id) ? 'selected' : ''%> value="<%=@draft.id%>?team_id=<%=team.id%>"><%=team.name%></option>
     <%end%>
   </select>
 </div>
