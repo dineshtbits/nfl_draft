@@ -18,5 +18,6 @@ namespace :import do
     end_time = Time.now
     duration = (start_time - end_time) / 1.minute
     log.info "Task finished at #{end_time} and last #{duration} minutes."
+    log.close
   end
 end

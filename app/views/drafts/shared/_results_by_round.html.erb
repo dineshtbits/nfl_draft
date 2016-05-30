@@ -2,7 +2,7 @@
 <div>
   <span class="font-bold">Select Round: </span>
   <%(1..7).each do |i|%>
-      <span><a class="<%=params[:round].eql?(i) ? 'page-selected' : ''%>" href="<%=@draft.id%>?round=<%=i%>"><%=i%></a></span>
+      <span class="<%=params[:round].to_i.eql?(i) ? 'page-selected' : ''%>"><a href="<%=@draft.id%>?round=<%=i%>"><%=i%></a></span>
   <%end%>
 </div>
 <% if @results[:by_round].count > 0%>

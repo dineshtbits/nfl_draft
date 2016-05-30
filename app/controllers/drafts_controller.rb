@@ -8,7 +8,7 @@ class DraftsController < ApplicationController
 
   # GET /drafts/1
   def show
-    @results = @draft.filter(params)
+    @results = @draft.filter(filter_params)
     @previous_picks = @draft.previous_picks(3).to_a
     @next_picks = @draft.next_picks(4).to_a
     @draftable_players = @draft.draftable_players
@@ -32,8 +32,7 @@ class DraftsController < ApplicationController
       @draft = Draft.find(params[:id])
     end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def draft_params
-      params.fetch(:draft, {})
+    def filter_params
+      params.permit(:round, :team_id)
     end
 end
