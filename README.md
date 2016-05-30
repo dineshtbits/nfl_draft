@@ -26,6 +26,7 @@ $ rails s
 There is another rake task to simulate the draft process.
 
 ```
+$ rake import:data
 $ rake simulate:draft_process
 ```
 
