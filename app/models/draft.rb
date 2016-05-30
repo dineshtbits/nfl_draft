@@ -20,7 +20,7 @@ class Draft < ActiveRecord::Base
   def filter(params)
     results = {by_round: [], by_team: []}
 
-    params[:round] = params[:round].to_i > 0 ? params[:round].to_i :  1
+    params[:round] = params[:round].to_i > 0 ? params[:round].to_i : 1
     results[:by_round] = ownerships.where.not(player_id: nil).where(round: params[:round]).all
 
     params[:team_id] = params[:team_id].to_i > 0 ? params[:team_id].to_i : Team.first.id

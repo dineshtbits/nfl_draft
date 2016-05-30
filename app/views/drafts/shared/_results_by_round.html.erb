@@ -1,11 +1,11 @@
-<h3>NFL Draft <%=@draft.year%> Results - By Round</h3>
+<h3>Results - By Round</h3>
 <div>
   <span class="font-bold">Select Round: </span>
-  <%(1..7).each do |i|%>
-      <span class="<%=params[:round].to_i.eql?(i) ? 'page-selected' : ''%>"><a href="<%=@draft.id%>?round=<%=i%>"><%=i%></a></span>
-  <%end%>
+  <% (1..7).each do |i| %>
+      <span class="<%= params[:round].to_i.eql?(i) ? 'page-selected' : '' %>"><a href="<%= @draft.id %>?round=<%= i %>"><%= i %></a></span>
+  <% end %>
 </div>
-<% if @results[:by_round].count > 0%>
+<% if @results[:by_round].count > 0 %>
     <div class="table-margin">
       <table class="table-fill">
         <thead>
@@ -17,18 +17,18 @@
         </tr>
         </thead>
         <tbody class="table-hover">
-        <%@results[:by_round].each do |result| %>
+        <% @results[:by_round].each do |result| %>
             <tr>
               <td class="text-left"><%= result.pick %></td>
               <td class="text-left"><%= @teams[result.team_id].name %></td>
               <td class="text-left"><%= @players[result.player_id].name %></td>
-              <td class="text-left"><%= @players[result.player_id].position%></td>
+              <td class="text-left"><%= @players[result.player_id].position %></td>
             </tr>
-        <%end%>
+        <% end %>
         </tbody>
       </table>
     </div>
-<%else%>
+<% else %>
     No results found.
-<%end%>
+<% end %>
 
