@@ -2,6 +2,9 @@ require 'rails_helper'
 
 describe DraftsController do
   describe "GET Index" do
+    before :all do
+      $rake['import:data'].execute
+    end
     it "gets the index view" do
       get "index"
       expect(response.status).to eql(200)
