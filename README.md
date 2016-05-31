@@ -26,12 +26,12 @@ rails s
 Rake task to simulate the Draft process.
 
 ```
-$ rake import:data
-$ rake simulate:draft_process
+rake import:data
+rake simulate:draft_process
 ```
 
 Running test cases
 
 ```
-$ rspec
+rspec
 ```
