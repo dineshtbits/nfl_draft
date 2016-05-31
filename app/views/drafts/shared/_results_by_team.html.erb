@@ -2,7 +2,7 @@
 <div>
   <span class="font-bold">Select Team: </span>
   <select id="teams" onChange="window.location.href=this.value">
-    <%@teams.values.each do |team|%>
+    <%@teams.each do |team|%>
         <option <%=params[:team_id].to_i.eql?(team.id) ? 'selected' : ''%> value="<%=@draft.id%>?team_id=<%=team.id%>"><%=team.name%></option>
     <%end%>
   </select>
@@ -22,9 +22,9 @@
         <%@results[:by_team].each do |result| %>
             <tr>
               <td class="text-left"><%= result.pick %></td>
-              <td class="text-left"><%= @teams[result.team_id].name %></td>
-              <td class="text-left"><%= @players[result.player_id].name %></td>
-              <td class="text-left"><%= @players[result.player_id].position%></td>
+              <td class="text-left"><%= result.team.name %></td>
+              <td class="text-left"><%= result.player.name %></td>
+              <td class="text-left"><%= result.player.position%></td>
             </tr>
         <%end%>
         </tbody>

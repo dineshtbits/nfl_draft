@@ -10,7 +10,7 @@ $ bundle install
 $ rake db:migrate
 ```
 
-* Rake Task - Following rake task loads the NFL team, player and draft order data into the database.
+* Rake Task
 
 ```
 $ rake import:data
@@ -23,7 +23,6 @@ $ rails s
 ```
 
 ## Other Rake Tasks
-There is another rake task to simulate the draft process.
 
 ```
 $ rake import:data
@@ -36,7 +35,4 @@ $ rake simulate:draft_process
 $ rspec
 ```
 
-
-
-### Notes
 

@@ -17,14 +17,27 @@ class Draft < ActiveRecord::Base
     Player.where.not(id: drafted_players).all
   end
 
-  def filter(params)
-    results = {by_round: [], by_team: []}
+  def filter(options)
+    set_default_round_to_1(options)
+    set_default_team_to_first_team(options)
+    {by_round: fetch_results_by_round(options), by_team: fetch_results_by_team(options)}
+  end
 
-    params[:round] = params[:round].to_i > 0 ? params[:round].to_i : 1
-    results[:by_round] = ownerships.where.not(player_id: nil).where(round: params[:round]).all
+  private
 
-    params[:team_id] = params[:team_id].to_i > 0 ? params[:team_id].to_i : Team.first.id
-    results[:by_team] = ownerships.where.not(player_id: nil).where(team_id: params[:team_id]).all
-    results
+  def set_default_round_to_1 options
+    options[:round] = options[:round].to_i > 0 ? options[:round].to_i : 1
+  end
+
+  def fetch_results_by_round options
+    ownerships.where.not(player_id: nil).where(round: options[:round]).all
+  end
+
+  def set_default_team_to_first_team options
+    options[:team_id] = options[:team_id].to_i > 0 ? options[:team_id].to_i : Team.first.id
+  end
+
+  def fetch_results_by_team options
+    ownerships.where.not(player_id: nil).where(team_id: options[:team_id]).all
   end
 end

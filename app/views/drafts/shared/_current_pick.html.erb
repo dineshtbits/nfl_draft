@@ -14,7 +14,7 @@
         <tr>
           <td class="text-left"><%= current_pick.round %></td>
           <td class="text-left"><%= current_pick.pick %></td>
-          <td class="text-left"><%= @teams[current_pick.team_id].name %></td>
+          <td class="text-left"><%= current_pick.team.name %></td>
         </tr>
         </tbody>
       </table>

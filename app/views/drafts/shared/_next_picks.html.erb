@@ -16,7 +16,7 @@
             <tr>
               <td class="text-left"><%= previous_pick.round %></td>
               <td class="text-left"><%= previous_pick.pick %></td>
-              <td class="text-left"><%= @teams[previous_pick.team_id].name %></td>
+              <td class="text-left"><%= previous_pick.team.name %></td>
             </tr>
         <% end %>
         </tbody>

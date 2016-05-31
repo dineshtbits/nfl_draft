@@ -20,9 +20,9 @@
         <% @results[:by_round].each do |result| %>
             <tr>
               <td class="text-left"><%= result.pick %></td>
-              <td class="text-left"><%= @teams[result.team_id].name %></td>
-              <td class="text-left"><%= @players[result.player_id].name %></td>
-              <td class="text-left"><%= @players[result.player_id].position %></td>
+              <td class="text-left"><%= result.team.name %></td>
+              <td class="text-left"><%= result.player.name %></td>
+              <td class="text-left"><%= result.player.position %></td>
             </tr>
         <% end %>
         </tbody>

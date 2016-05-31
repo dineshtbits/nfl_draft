@@ -26,7 +26,7 @@ describe OwnershipsController do
       @drafted_player = @draft.drafted_players.sample
       put "update", {draft_id: @draft.id, id: @previous_pick.id, ownership: {player_id: @drafted_player}}
       current_pick = assigns(:current_pick)
-      expect(current_pick.errors.full_messages).to include('A player is already assigned to this pick. Please refresh to view next pick.')
+      expect(current_pick.errors.full_messages).to include('Player has already been taken')
     end
 
     it "successfully assignes player and redirects to assign_player" do
