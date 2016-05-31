@@ -1,28 +1,32 @@
 # NFL Draft
 
-## Initial Setup
+#### Initial Setup
 
-* Clone the repo
-* Setup the app
-
-```
-$ bundle install
-$ rake db:migrate
-```
-
-* Rake Task
+Clone the repo
+Setup the app
 
 ```
-$ rake import:data
+bundle install
+rake db:migrate
 ```
 
-* Run the Server
+#### Rake Task
+
+Rake task to load the data from CSV files
 
 ```
-$ rails s
+rake import:data
 ```
 
-## Other Rake Tasks
+Run the Server
+
+```
+rails s
+```
+
+#### Other Rake Task
+
+Rake task to simulate the Draft process.
 
 ```
 $ rake import:data
@@ -34,5 +38,3 @@ $ rake simulate:draft_process
 ```
 $ rspec
 ```
-
-
