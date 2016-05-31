@@ -2,7 +2,7 @@ require 'csv'
 
 class PlayersDataImporter
   def process
-    delete_all_existing_data
+    delete_existing_players_data
     file_name = File.join(Rails.root, "players.csv")
     CSV.foreach(file_name, {headers: true}) do |row|
       create_player_record(row)
@@ -11,7 +11,7 @@ class PlayersDataImporter
 
   private
 
-  def delete_all_existing_data
+  def delete_existing_players_data
     Player.delete_all
   end
 
