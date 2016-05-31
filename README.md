@@ -2,7 +2,6 @@
 
 
 Clone the repo
-Setup the app
 
 ```
 bundle install
