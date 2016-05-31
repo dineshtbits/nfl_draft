@@ -1,4 +1,3 @@
-# lib/tasks/import/data.rake
 namespace :import do
   desc 'Import data from CSV files'
   task data: :environment do
